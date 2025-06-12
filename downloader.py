@@ -4,8 +4,10 @@ from yt_dlp import YoutubeDL, utils as ytdlp_utils
 from telegram import Update, InputFile
 from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, filters, ContextTypes
 
-# ✅ Ton token (remplace si besoin)
-TOKEN = "7922618318:AAFeTFXCnfVNLj6xuWQIoIBh73IPhAhutwc"
+TOKEN = os.environ.get("7922618318:AAFeTFXCnfVNLj6xuWQIoIBh73IPhAhutwc")
+if not TOKEN:
+    logging.error("BOT_TOKEN variable d'environnement non trouvée. Veuillez la définir.")
+    exit(1) # Quitte si le token n'est pas défini
 
 # 🔧 Log setup
 logging.basicConfig(format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=logging.INFO)
