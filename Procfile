@@ -1,1 +1,1 @@
-web: downloader(1).py
+worker: downloader(1).py
